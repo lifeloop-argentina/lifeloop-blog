@@ -13,6 +13,7 @@ export default {
       },
       fontFamily: {
         inter: ['Inter', 'system-ui', 'sans-serif'],
+        heading: ['"DM Sans"', 'Inter', 'system-ui', 'sans-serif'],
       },
       maxWidth: {
         content: '720px',
@@ -25,9 +26,9 @@ export default {
             maxWidth: '720px',
             fontFamily: 'Inter, system-ui, sans-serif',
             lineHeight: '1.6',
-            h1: { fontWeight: '800', letterSpacing: '-0.02em', lineHeight: '1' },
-            h2: { fontWeight: '800', letterSpacing: '-0.02em', lineHeight: '1.1' },
-            h3: { fontWeight: '700', letterSpacing: '-0.01em', lineHeight: '1.2' },
+            h1: { fontFamily: '"DM Sans", Inter, system-ui, sans-serif', fontWeight: '800', letterSpacing: '-0.02em', lineHeight: '1' },
+            h2: { fontFamily: '"DM Sans", Inter, system-ui, sans-serif', fontWeight: '800', letterSpacing: '-0.02em', lineHeight: '1.1' },
+            h3: { fontFamily: '"DM Sans", Inter, system-ui, sans-serif', fontWeight: '700', letterSpacing: '-0.01em', lineHeight: '1.2' },
             a: { color: theme('colors.ll-gold'), textDecoration: 'none', '&:hover': { textDecoration: 'underline' } },
             img: { borderRadius: '0.25rem' },
           },

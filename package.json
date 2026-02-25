@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "astro build && cp -r dist/_astro dist/blog/_astro && cp -r dist/images dist/blog/images",
     "preview": "astro preview",
     "astro": "astro"
   },
