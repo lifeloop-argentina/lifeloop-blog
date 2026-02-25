@@ -1,0 +1,106 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import TableOfContents from '../components/TableOfContents.astro';
+import ShareButtons from '../components/ShareButtons.astro';
+import AuthorBio from '../components/AuthorBio.astro';
+import RelatedPosts from '../components/RelatedPosts.astro';
+
+interface Props {
+  frontmatter: {
+    title: string;
+    description: string;
+    date: Date;
+    updatedDate?: Date;
+    image: string;
+    imageAlt?: string;
+    author: string;
+    tags: string[];
+    category: string;
+    readingTime: number;
+  };
+  headings: { depth: number; slug: string; text: string }[];
+  slug: string;
+}
+
+const { frontmatter, headings, slug } = Astro.props;
+
+const formattedDate = frontmatter.date.toLocaleDateString('es-AR', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+---
+
+<BaseLayout
+  title={frontmatter.title}
+  description={frontmatter.description}
+  image={frontmatter.image}
+  imageAlt={frontmatter.imageAlt}
+  type="article"
+  publishDate={frontmatter.date}
+  updatedDate={frontmatter.updatedDate}
+  author={frontmatter.author}
+  tags={frontmatter.tags}
+>
+  <!-- Hero -->
+  <div class="relative w-full aspect-[21/9] max-h-[480px] overflow-hidden">
+    <img
+      src={frontmatter.image}
+      alt={frontmatter.imageAlt || frontmatter.title}
+      class="w-full h-full object-cover"
+    />
+    <div class="absolute inset-0 bg-gradient-to-t from-ll-black via-ll-black/40 to-transparent"></div>
+  </div>
+
+  <div class="max-w-6xl mx-auto px-6 -mt-24 relative z-10">
+    <!-- Meta bar -->
+    <div class="flex items-center gap-3 mb-4">
+      {frontmatter.tags.map(tag => (
+        <a href={`/blog/tag/${tag}/`} class="text-[11px] font-inter font-500 uppercase tracking-widest text-ll-gold hover:text-ll-gold-light transition-colors">
+          {tag}
+        </a>
+      ))}
+    </div>
+
+    <h1 class="text-3xl md:text-5xl font-inter font-800 tracking-tight leading-none text-ll-white mb-6 max-w-4xl">
+      {frontmatter.title}
+    </h1>
+
+    <div class="flex items-center gap-4 mb-12 text-sm text-white/40 font-inter font-300">
+      <span>{frontmatter.author}</span>
+      <span class="text-white/15">·</span>
+      <time datetime={frontmatter.date.toISOString()}>{formattedDate}</time>
+      <span class="text-white/15">·</span>
+      <span>{frontmatter.readingTime} min de lectura</span>
+    </div>
+
+    <!-- Content + TOC grid -->
+    <div class="flex gap-12">
+      <!-- Article -->
+      <article class="flex-1 min-w-0">
+        <div class="prose prose-invert prose-lg max-w-content">
+          <slot />
+        </div>
+
+        <div class="mt-12 max-w-content">
+          <ShareButtons title={frontmatter.title} url={Astro.url.pathname} />
+        </div>
+
+        <div class="mt-12 max-w-content">
+          <AuthorBio author={frontmatter.author} />
+        </div>
+
+        <div class="max-w-4xl">
+          <RelatedPosts currentSlug={slug} tags={frontmatter.tags} />
+        </div>
+      </article>
+
+      <!-- TOC sidebar -->
+      <aside class="hidden lg:block w-64 flex-shrink-0">
+        <TableOfContents headings={headings} />
+      </aside>
+    </div>
+  </div>
+
+  <div class="h-24"></div>
+</BaseLayout>
