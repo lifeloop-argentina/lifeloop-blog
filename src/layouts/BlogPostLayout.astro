@@ -17,12 +17,26 @@ interface Props {
     tags: string[];
     category: string;
     readingTime: number;
+    faq?: { question: string; answer: string }[];
   };
   headings: { depth: number; slug: string; text: string }[];
   slug: string;
 }
 
 const { frontmatter, headings, slug } = Astro.props;
+
+const faqSchema = frontmatter.faq && frontmatter.faq.length > 0 ? JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": frontmatter.faq.map(item => ({
+    "@type": "Question",
+    "name": item.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": item.answer,
+    },
+  })),
+}) : null;
 
 const formattedDate = frontmatter.date.toLocaleDateString('es-AR', {
   year: 'numeric',
@@ -42,6 +56,8 @@ const formattedDate = frontmatter.date.toLocaleDateString('es-AR', {
   author={frontmatter.author}
   tags={frontmatter.tags}
 >
+  {faqSchema && <script type="application/ld+json" set:html={faqSchema} />}
+
   <!-- Hero -->
   <div class="relative w-full aspect-[21/9] max-h-[480px] overflow-hidden">
     <img
