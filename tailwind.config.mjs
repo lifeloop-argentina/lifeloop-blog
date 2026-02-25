@@ -3,6 +3,17 @@ export default {
   content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
   theme: {
     extend: {
+      fontWeight: {
+        100: '100',
+        200: '200',
+        300: '300',
+        400: '400',
+        500: '500',
+        600: '600',
+        700: '700',
+        800: '800',
+        900: '900',
+      },
       colors: {
         'll-black': '#0d0d0d',
         'll-dark': '#1a1a1a',
@@ -20,8 +31,21 @@ export default {
       typography: ({ theme }) => ({
         DEFAULT: {
           css: {
-            '--tw-prose-body': theme('colors.ll-dark'),
-            '--tw-prose-headings': theme('colors.ll-black'),
+            '--tw-prose-body': theme('colors.ll-cream'),
+            '--tw-prose-headings': '#ffffff',
+            '--tw-prose-bold': '#ffffff',
+            '--tw-prose-links': theme('colors.ll-gold'),
+            '--tw-prose-counters': 'rgba(255,255,255,0.5)',
+            '--tw-prose-bullets': 'rgba(255,255,255,0.3)',
+            '--tw-prose-hr': 'rgba(255,255,255,0.1)',
+            '--tw-prose-quotes': theme('colors.ll-cream'),
+            '--tw-prose-quote-borders': theme('colors.ll-gold'),
+            '--tw-prose-captions': 'rgba(255,255,255,0.4)',
+            '--tw-prose-code': theme('colors.ll-cream'),
+            '--tw-prose-pre-code': theme('colors.ll-cream'),
+            '--tw-prose-pre-bg': 'rgba(255,255,255,0.05)',
+            '--tw-prose-th-borders': 'rgba(255,255,255,0.1)',
+            '--tw-prose-td-borders': 'rgba(255,255,255,0.05)',
             maxWidth: '720px',
             fontFamily: 'Inter, system-ui, sans-serif',
             lineHeight: '1.6',

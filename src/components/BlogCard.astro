@@ -6,11 +6,12 @@ interface Props {
   image: string;
   imageAlt?: string;
   tags: string[];
+  category?: string;
   readingTime: number;
   slug: string;
 }
 
-const { title, description, date, image, imageAlt, tags, readingTime, slug } = Astro.props;
+const { title, description, date, image, imageAlt, tags, category, readingTime, slug } = Astro.props;
 
 const formattedDate = date.toLocaleDateString('es-AR', {
   year: 'numeric',
@@ -21,31 +22,27 @@ const formattedDate = date.toLocaleDateString('es-AR', {
 
 <article class="group">
   <a href={`/blog/${slug}/`} class="block">
-    <div class="aspect-[16/10] overflow-hidden rounded bg-ll-dark mb-4">
+    <div class="aspect-[16/9] overflow-hidden rounded-xl bg-ll-dark mb-5">
       <img
         src={image}
         alt={imageAlt || title}
-        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
         loading="lazy"
       />
     </div>
     <div class="flex items-center gap-3 mb-3">
-      {tags.slice(0, 2).map(tag => (
-        <span class="text-[11px] font-inter font-500 uppercase tracking-widest text-ll-gold/80">
-          {tag}
+      {category && (
+        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-500 uppercase tracking-widest bg-ll-gold/10 text-ll-gold border border-ll-gold/20">
+          {category}
         </span>
-      ))}
-      <span class="text-[11px] text-white/25 font-inter">·</span>
-      <span class="text-[11px] text-white/35 font-inter font-300">{readingTime} min</span>
+      )}
+      <span class="text-[11px] text-white/35 font-300">{formattedDate}</span>
     </div>
-    <h3 class="text-lg font-inter font-800 tracking-tight leading-snug text-ll-white group-hover:text-ll-gold transition-colors mb-2">
+    <h3 class="text-xl font-800 tracking-tight leading-snug text-white group-hover:text-ll-gold transition-colors duration-200 mb-2">
       {title}
     </h3>
-    <p class="text-sm font-inter font-300 text-white/45 leading-relaxed line-clamp-2 mb-3">
+    <p class="text-sm font-300 text-white/45 leading-relaxed line-clamp-3">
       {description}
     </p>
-    <time class="text-xs font-inter font-300 text-white/25" datetime={date.toISOString()}>
-      {formattedDate}
-    </time>
   </a>
 </article>

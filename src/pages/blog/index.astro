@@ -5,40 +5,90 @@ import { getCollection } from 'astro:content';
 
 const allPosts = await getCollection('blog', ({ data }) => !data.draft);
 const posts = allPosts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+const categories = ["Todos", "Recuperación", "Sauna", "Compresión", "Ice Bath", "Luz Roja"];
 ---
 
 <BaseLayout title="Blog" description="Exploramos la ciencia detrás de la recuperación y el bienestar moderno.">
   <section class="max-w-6xl mx-auto px-6 py-20">
     <!-- Header -->
-    <div class="mb-16">
-      <h1 class="text-4xl md:text-6xl font-inter font-800 tracking-tight leading-none text-ll-white mb-4">
+    <div class="mb-12">
+      <h1 class="text-4xl md:text-6xl font-800 tracking-tight leading-none text-white mb-4">
         Blog
       </h1>
-      <p class="text-lg font-inter font-300 text-white/40 max-w-xl">
+      <p class="text-lg font-300 text-white/40 max-w-xl">
         Ciencia, recuperación y bienestar moderno. Ideas para vivir mejor.
       </p>
     </div>
 
+    <!-- Category Filters -->
+    <div class="flex flex-wrap gap-2 mb-16">
+      {categories.map((cat, i) => (
+        <button
+          data-category={cat}
+          class:list={[
+            "category-btn px-4 py-2 rounded-full text-sm font-500 transition-all duration-200 border",
+            i === 0
+              ? "bg-white text-ll-black border-white"
+              : "bg-transparent text-white/50 border-white/10 hover:border-white/25 hover:text-white/80"
+          ]}
+        >
+          {cat}
+        </button>
+      ))}
+    </div>
+
     <!-- Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-14" id="posts-grid">
       {posts.map(post => (
-        <BlogCard
-          title={post.data.title}
-          description={post.data.description}
-          date={post.data.date}
-          image={post.data.image}
-          imageAlt={post.data.imageAlt}
-          tags={post.data.tags}
-          readingTime={post.data.readingTime}
-          slug={post.slug}
-        />
+        <div data-post-category={post.data.category}>
+          <BlogCard
+            title={post.data.title}
+            description={post.data.description}
+            date={post.data.date}
+            image={post.data.image}
+            imageAlt={post.data.imageAlt}
+            tags={post.data.tags}
+            category={post.data.category}
+            readingTime={post.data.readingTime}
+            slug={post.slug}
+          />
+        </div>
       ))}
     </div>
 
     {posts.length === 0 && (
-      <p class="text-white/30 font-inter font-300 text-center py-20">
+      <p class="text-white/30 font-300 text-center py-20">
         Próximamente — estamos preparando contenido increíble.
       </p>
     )}
   </section>
 </BaseLayout>
+
+<script>
+  const buttons = document.querySelectorAll('.category-btn');
+  const posts = document.querySelectorAll('[data-post-category]');
+
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const cat = btn.getAttribute('data-category');
+
+      // Update active button
+      buttons.forEach(b => {
+        b.classList.remove('bg-white', 'text-ll-black', 'border-white');
+        b.classList.add('bg-transparent', 'text-white/50', 'border-white/10');
+      });
+      btn.classList.remove('bg-transparent', 'text-white/50', 'border-white/10');
+      btn.classList.add('bg-white', 'text-ll-black', 'border-white');
+
+      // Filter posts
+      posts.forEach(post => {
+        if (cat === 'Todos' || post.getAttribute('data-post-category') === cat) {
+          (post as HTMLElement).style.display = '';
+        } else {
+          (post as HTMLElement).style.display = 'none';
+        }
+      });
+    });
+  });
+</script>
