@@ -5,7 +5,8 @@ interface Props {
 }
 
 const { title, url } = Astro.props;
-const fullUrl = new URL(url, Astro.site).toString();
+const fixedUrl = url.replace(/^\/blog\/blog\//, '/blog/');
+const fullUrl = `https://lifeloop.com.ar${fixedUrl}`;
 const encodedTitle = encodeURIComponent(title);
 const encodedUrl = encodeURIComponent(fullUrl);
 ---

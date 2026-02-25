@@ -12,6 +12,13 @@ interface Props {
   canonicalURL?: URL | string;
 }
 
+const siteOrigin = 'https://lifeloop.com.ar';
+const basePath = '/blog';
+
+// Fix pathname: Astro with base may double the base in Astro.url.pathname
+const rawPath = Astro.url.pathname;
+const fixedPath = rawPath.replace(/^\/blog\/blog\//, '/blog/');
+
 const {
   title,
   description,
@@ -22,10 +29,12 @@ const {
   updatedDate,
   author = 'Ian Marco de Lifeloop',
   tags = [],
-  canonicalURL = new URL(Astro.url.pathname, Astro.site),
+  canonicalURL = `${siteOrigin}${fixedPath}`,
 } = Astro.props;
 
-const fullImageURL = new URL(image, Astro.site).toString();
+// Ensure image URL has /blog prefix for correct serving
+const imgPath = image.startsWith('/blog/') ? image : image.startsWith('/') ? `/blog${image}` : image;
+const fullImageURL = `${siteOrigin}${imgPath}`;
 const fullTitle = `${title} | Lifeloop`;
 
 const jsonLd = type === 'article' ? JSON.stringify({
