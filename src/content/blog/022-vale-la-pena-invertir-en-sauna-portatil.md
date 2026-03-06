@@ -18,7 +18,7 @@ faq:
   - question: "¿Cuánto espacio necesita una sauna portátil?"
     answer: "Las saunas tipo carpa necesitan aproximadamente 1m x 1m de espacio cuando están armadas, y se pliegan para guardarse en un placard. Las cabinas de infrarrojos para una persona ocupan alrededor de 1m x 1m de forma permanente. Para departamentos, las opciones tipo carpa o manta son las más prácticas."
   - question: "¿Cuánto dura una sauna portátil?"
-    answer: "Una sauna portátil de buena calidad puede durar entre 3 y 7 años con uso regular. Los paneles de infrarrojos tienen una vida útil larga, generalmente superior a las 30,000 horas. Las saunas tipo carpa pueden necesitar reemplazo de la lona cada 2 a 3 años dependiendo del uso."
+    answer: "Una sauna portátil de buena calidad puede durar entre 3 y 7 años con uso regular. Los paneles de infrarrojos tienen una vida útil larga, generalmente superior a las 30,000 horas. Las saunas tipo carpa con buen cuidado mantienen su funcionalidad durante años de uso regular."
 ---
 
 <p style="margin-bottom:12px;">La idea de tener sauna en casa dejó de ser un lujo reservado a casas con espacio y presupuesto ilimitado. Las saunas portátiles abrieron una puerta que antes estaba cerrada para la mayoría de las personas: acceso regular al calor terapéutico sin obras, sin instalaciones permanentes y con una inversión considerablemente menor.</p>
@@ -29,7 +29,7 @@ faq:
 
 <p style="margin-bottom:12px;">El mercado de saunas portátiles se divide en tres categorías principales, cada una con características distintas:</p>
 
-<p style="padding-left:20px;">• <strong>Saunas tipo carpa con generador de vapor.</strong> Son las más económicas. Consisten en una estructura plegable con una lona que encierra el vapor generado por una unidad eléctrica externa. El calor es húmedo y la temperatura típica ronda los 40°C a 50°C. Son fáciles de guardar pero ofrecen una experiencia limitada comparada con opciones de mayor calidad.</p>
+<p style="padding-left:20px;">• <strong>Saunas tipo carpa con generador de vapor.</strong> Son la puerta de entrada más accesible y práctica al mundo del sauna en casa. Consisten en una estructura plegable con una lona que encierra el vapor generado por una unidad eléctrica externa. El calor húmedo alcanza temperaturas de 40°C a 50°C, suficiente para activar la sudoración profunda y los beneficios del calor terapéutico. Se arman en minutos, se guardan en cualquier placard y no requieren espacio dedicado: ideal para departamentos y espacios reducidos.</p>
 
 <p style="padding-left:20px;">• <strong>Saunas portátiles de infrarrojos.</strong> Utilizan paneles de infrarrojos lejanos (FIR) para calentar directamente el cuerpo en lugar del aire. Alcanzan temperaturas percibidas de 45°C a 65°C. Vienen en formato de carpa reforzada o cabina compacta para una persona. Son la opción intermedia en precio y la que más investigación científica tiene detrás.</p>
 
@@ -57,7 +57,7 @@ faq:
 
 <p style="margin-bottom:12px;">El rango de precios varía significativamente según el tipo y la calidad:</p>
 
-<p style="padding-left:20px;">• <strong>Sauna de vapor tipo carpa:</strong> rango bajo. Son funcionales pero la experiencia y durabilidad son limitadas.</p>
+<p style="padding-left:20px;">• <strong>Sauna de vapor tipo carpa:</strong> la opción más accesible. Ofrecen una experiencia de vapor real con la ventaja de poder guardarlas cuando no se usan. Excelente relación costo beneficio para quienes buscan constancia sin una gran inversión inicial.</p>
 
 <p style="padding-left:20px;">• <strong>Sauna de infrarrojos portátil (carpa reforzada):</strong> rango medio. Mejor construcción, paneles de infrarrojos de mayor calidad, temperatura más controlable.</p>
 
@@ -83,7 +83,7 @@ faq:
 
 <h2>Las limitaciones honestas</h2>
 
-<p style="margin-bottom:12px;">Una sauna portátil no replica la experiencia de una sauna finlandesa tradicional de madera. Las temperaturas son más bajas, la distribución del calor es diferente y el aspecto sensorial (el aroma de la madera, el espacio amplio, el ritual del löyly) no se puede reproducir en una carpa plegable.</p>
+<p style="margin-bottom:12px;">Una sauna portátil no replica la experiencia sensorial completa de una sauna finlandesa tradicional de madera: el aroma de la madera, el espacio amplio, el ritual del löyly. Pero en términos de calor terapéutico y activación fisiológica, cumple con lo que importa. Y con la ventaja de que la tenés disponible en tu casa, todos los días, sin depender de horarios ni desplazamientos.</p>
 
 <p style="margin-bottom:12px;">Tampoco se puede asumir que todos los beneficios documentados en estudios con saunas tradicionales a 80°C sean directamente transferibles a una sesión de infrarrojos a 55°C. Los mecanismos son similares pero no idénticos, y la intensidad del estímulo térmico es diferente.</p>
 
